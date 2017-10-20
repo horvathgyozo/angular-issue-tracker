@@ -1,0 +1,9 @@
+<ul>
+  <ng-container *ngFor="let fruit of fruits; let i = index">
+    <li *ngIf="fruit != 'alma'">
+      <a [routerLink]="['/fruit', i]">
+        {{fruit}}
+      </a>
+    </li>
+  </ng-container>
+</ul>
