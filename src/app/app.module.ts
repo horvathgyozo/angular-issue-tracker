@@ -9,6 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FruitDetailComponent } from './fruit-detail/fruit-detail.component';
 import { FruitsService } from "./fruits.service";
 
+import { RoutingModule } from "./routing/routing.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,7 @@ import { FruitsService } from "./fruits.service";
   ],
   imports: [
     BrowserModule,
-
+    RoutingModule
   ],
   providers: [FruitsService],
   bootstrap: [AppComponent]
