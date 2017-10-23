@@ -7,6 +7,9 @@ import { NamesComponent } from '../names/names.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { FruitDetailComponent } from '../fruit-detail/fruit-detail.component';
 import { FruitsService } from "../fruits.service";
+import { IssueListComponent } from "../issue-list/issue-list.component";
+import { IssueDetailComponent } from "../issue-detail/issue-detail.component";
+import { IssueFormComponent } from "../issue-form/issue-form.component";
 
 const routes: Routes = [
   {
@@ -15,16 +18,20 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'names',
-    component: NamesComponent
+    path: 'issues',
+    component: IssueListComponent
   },
   {
     path: 'dashboard',
     component: DashboardComponent
   },
   {
-    path: 'fruit/:id',
-    component: FruitDetailComponent
+    path: 'issues/add',
+    component: IssueFormComponent
+  },
+  {
+    path: 'issues/:id',
+    component: IssueDetailComponent
   },
 ];
 

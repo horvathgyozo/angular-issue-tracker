@@ -13,8 +13,11 @@ import { NamesComponent } from './names/names.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FruitDetailComponent } from './fruit-detail/fruit-detail.component';
 import { FruitsService } from "./fruits.service";
+import { IssueListComponent } from './issue-list/issue-list.component';
 
 import { RoutingModule } from "./routing/routing.module";
+import { IssueDetailComponent } from './issue-detail/issue-detail.component';
+import { IssueFormComponent } from './issue-form/issue-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { RoutingModule } from "./routing/routing.module";
     FruitListComponent,
     NamesComponent,
     DashboardComponent,
-    FruitDetailComponent
+    FruitDetailComponent,
+    IssueListComponent,
+    IssueDetailComponent,
+    IssueFormComponent
   ],
   imports: [
     BrowserModule,

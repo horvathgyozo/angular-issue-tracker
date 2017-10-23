@@ -26,3 +26,6 @@ https://github.com/angular/angular-cli/wiki/stories-include-bootstrap
 ngx-bootstrap
 https://loiane.com/2017/08/how-to-add-bootstrap-to-an-angular-cli-project/#4-bootstrap-javascript-components-with-ngx-bootstrap-option-1
 
+
+https://material.io/icons/
+

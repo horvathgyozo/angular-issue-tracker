@@ -1,0 +1,19 @@
+<h1 class="display-2">New issue</h1>
+<form>
+
+  <div class="form-group">
+    <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
+    <mat-form-field>
+      <input matInput type="text" aria-describedby="locationHelp" placeholder="Enter location">
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <!-- <small id="descriptionHelp" class="form-text text-muted">The error details</small> -->
+    <mat-form-field>
+      <textarea matInput aria-describedby="descriptionHelp" placeholder="Enter issue details"></textarea>
+    </mat-form-field>
+  </div>
+
+  <button type="submit" mat-raised-button color="primary" routerLink="/issues">Save new issue</button>
+</form>

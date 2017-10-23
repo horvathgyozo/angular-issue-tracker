@@ -1,0 +1,3 @@
+button[color=warn]:focus {
+  outline: none;
+}

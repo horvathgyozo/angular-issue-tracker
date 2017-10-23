@@ -1,0 +1,63 @@
+<h1 class="display-2">My issues</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Location</th>
+      <th scope="col">Description</th>
+      <th scope="col">Status</th>
+      <th scope="col">Functions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>PC5</td>
+      <td>
+        <a routerLink="/issues/1">Wrong machine</a>
+      </td>
+      <td>ADDED</td>
+      <td>
+        <button mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>PC2</td>
+      <td>
+        <a routerLink="/issues/1">Air condition</a>
+      </td>
+      <td>INPROGRESS</td>
+      <td>
+        <button mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>PC3</td>
+      <td>
+        <a routerLink="/issues/1">Air condition</a>
+      </td>
+      <td>INPROGRESS</td>
+      <td>
+        <button mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button mat-raised-button routerLink="/issues/add" color="primary">New issues</button>
