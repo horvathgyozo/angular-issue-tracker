@@ -1,11 +1,11 @@
 <!-- <h1 class="display-2">New issue</h1> -->
-<form #issueForm="ngForm">
+<form #issueForm="ngForm" (ngSubmit)="onSubmit(issueForm)">
 
   <div class="form-group">
     <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
     <mat-form-field>
       <input matInput type="text" aria-describedby="locationHelp" placeholder="Enter location"
-        required pattern="PC\d+" name="location" [(ngModel)]="issue.location" #location="ngModel">
+        required pattern="PC\d+" name="location" [(ngModel)]="model.location" #location="ngModel">
         <mat-error *ngIf="location.invalid && (location.dirty || location.touched) && location.errors.required">
           Location is <strong>required</strong>
         </mat-error>
@@ -19,9 +19,9 @@
     <!-- <small id="descriptionHelp" class="form-text text-muted">The error details</small> -->
     <mat-form-field>
       <textarea matInput aria-describedby="descriptionHelp" placeholder="Enter issue details"
-        required name="description" [(ngModel)]="issue.description"></textarea>
+        required name="description" [(ngModel)]="model.description"></textarea>
     </mat-form-field>
   </div>
 
-  <button type="submit" mat-raised-button color="primary" routerLink="/issues">Save new issue</button>
+  <button type="submit" mat-raised-button color="primary" [disabled]="!issueForm.valid">Save issue</button>
 </form>

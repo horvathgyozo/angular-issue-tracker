@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Issue } from "../issue";
+import { IssueFormComponent } from "../issue-form/issue-form.component";
 
 const issues: Issue[] = [
   {id: 1, location: 'PC5', description: 'Something wrong 1', status: 'ADDED'},
@@ -14,6 +15,7 @@ const issues: Issue[] = [
   styleUrls: ['./issue-list.component.css']
 })
 export class IssueListComponent implements OnInit {
+  @ViewChild(IssueFormComponent) issueForm: IssueFormComponent;
 
   issues = [];
   filteredIssues = [];
@@ -36,7 +38,18 @@ export class IssueListComponent implements OnInit {
   }
 
   onSelectIssue(issue) {
-    this.selectedIssue = issue;
+    if (!this.issueForm) {
+      this.selectedIssue = issue;
+    }
+    else if (this.issueForm.form.dirty) {
+      if (window.confirm('Discard changes?')) {
+        this.selectedIssue = issue;
+        this.issueForm.form.reset();
+      }
+    }
+    else {
+      this.selectedIssue = issue;
+    }
   }
 
 }
