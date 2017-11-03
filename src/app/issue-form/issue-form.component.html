@@ -5,7 +5,13 @@
     <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
     <mat-form-field>
       <input matInput type="text" aria-describedby="locationHelp" placeholder="Enter location"
-        required name="location" [(ngModel)]="issue.location">
+        required pattern="PC\d+" name="location" [(ngModel)]="issue.location" #location="ngModel">
+        <mat-error *ngIf="location.invalid && (location.dirty || location.touched) && location.errors.required">
+          Location is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="location.invalid && (location.dirty || location.touched) && location.errors.pattern">
+          Location must start with <strong>PC</strong>
+        </mat-error>
     </mat-form-field>
   </div>
 
