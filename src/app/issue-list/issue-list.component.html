@@ -1,7 +1,7 @@
 <h1 class="display-2">My issues</h1>
 
-<!-- <mat-button-toggle-group [(ngModel)]="selectedStatus"> -->
-<mat-button-toggle-group [value]="selectedStatus" (change)="onFilterChange(group.value)" #group="matButtonToggleGroup">
+<mat-button-toggle-group [ngModel]="selectedStatus" (ngModelChange)="onFilterChange($event)">
+<!-- <mat-button-toggle-group [value]="selectedStatus" (change)="onFilterChange(group.value)" #group="matButtonToggleGroup"> -->
   <mat-button-toggle value="" >
     All
   </mat-button-toggle>
