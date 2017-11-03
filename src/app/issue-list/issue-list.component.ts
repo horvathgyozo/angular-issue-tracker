@@ -18,7 +18,8 @@ export class IssueListComponent implements OnInit {
   issues = [];
   filteredIssues = [];
 
-  selectedStatus = ''
+  selectedStatus = '';
+  selectedIssue = null;
 
   ngOnInit() {
     this.issues = issues;
@@ -32,6 +33,10 @@ export class IssueListComponent implements OnInit {
 
   filterIssues() {
     this.filteredIssues = this.selectedStatus === '' ? this.issues : issues.filter(issue => issue.status === this.selectedStatus);
+  }
+
+  onSelectIssue(issue) {
+    this.selectedIssue = issue;
   }
 
 }

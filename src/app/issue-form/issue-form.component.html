@@ -1,17 +1,19 @@
-<h1 class="display-2">New issue</h1>
-<form>
+<!-- <h1 class="display-2">New issue</h1> -->
+<form #issueForm="ngForm">
 
   <div class="form-group">
     <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
     <mat-form-field>
-      <input matInput type="text" aria-describedby="locationHelp" placeholder="Enter location">
+      <input matInput type="text" aria-describedby="locationHelp" placeholder="Enter location"
+        required name="location" [(ngModel)]="issue.location">
     </mat-form-field>
   </div>
 
   <div class="form-group">
     <!-- <small id="descriptionHelp" class="form-text text-muted">The error details</small> -->
     <mat-form-field>
-      <textarea matInput aria-describedby="descriptionHelp" placeholder="Enter issue details"></textarea>
+      <textarea matInput aria-describedby="descriptionHelp" placeholder="Enter issue details"
+        required name="description" [(ngModel)]="issue.description"></textarea>
     </mat-form-field>
   </div>
 

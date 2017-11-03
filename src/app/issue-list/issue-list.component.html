@@ -1,36 +1,42 @@
 <h1 class="display-2">My issues</h1>
 
-<status-filter [status]="selectedStatus" (onChange)="onFilterChange($event)"></status-filter>
+<div class="row">
+  <div class="col">
+    <status-filter [status]="selectedStatus" (onChange)="onFilterChange($event)"></status-filter>
+    Selected filter: {{selectedStatus}}
 
-Selected filter: {{selectedStatus}}
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Location</th>
-      <th scope="col">Description</th>
-      <th scope="col">Status</th>
-      <th scope="col">Functions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let issue of filteredIssues">
-      <th scope="row">{{ issue.id }}</th>
-      <td>{{ issue.location }}</td>
-      <td>
-        <a [routerLink]="['/issues', issue.id]">{{ issue.description }}</a>
-      </td>
-      <td>{{ issue.status }}</td>
-      <td>
-        <button mat-icon-button>
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button color="warn">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<button mat-raised-button routerLink="/issues/add" color="primary">New issues</button>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Location</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+          <th scope="col">Functions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let issue of filteredIssues" (click)="onSelectIssue(issue)" [class.table-primary]="issue === selectedIssue">
+          <th scope="row">{{ issue.id }}</th>
+          <td>{{ issue.location }}</td>
+          <td>
+            <a [routerLink]="['/issues', issue.id]">{{ issue.description }}</a>
+          </td>
+          <td>{{ issue.status }}</td>
+          <td>
+            <button mat-icon-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button mat-raised-button routerLink="/issues/add" color="primary">New issues</button>
+  </div>
+  <div class="col" *ngIf="selectedIssue != null">
+    <issue-form [issue]="selectedIssue"></issue-form>
+  </div>
+</div>

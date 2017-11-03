@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-issue-form',
+  selector: 'issue-form',
   templateUrl: './issue-form.component.html',
   styleUrls: ['./issue-form.component.css']
 })
 export class IssueFormComponent implements OnInit {
+
+  @Input() issue = null;
 
   constructor() { }
 
