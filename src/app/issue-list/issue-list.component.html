@@ -1,14 +1,16 @@
 <h1 class="display-2">My issues</h1>
 
-Filter:
-<mat-button-toggle-group [value]="selectedStatus">
-  <mat-button-toggle value="All" >
+<!-- <mat-button-toggle-group [(ngModel)]="selectedStatus"> -->
+<mat-button-toggle-group [value]="selectedStatus" (change)="onFilterChange(group.value)" #group="matButtonToggleGroup">
+  <mat-button-toggle value="" >
     All
   </mat-button-toggle>
   <mat-button-toggle *ngFor="let status of statuses" [value]="status">
     {{status}}
   </mat-button-toggle>
 </mat-button-toggle-group>
+
+Selected filter: {{selectedStatus | json}}
 
 <table class="table">
   <thead>

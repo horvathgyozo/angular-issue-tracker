@@ -19,7 +19,10 @@ export class IssueListComponent {
     'ADDED', 'ASSIGNED', 'DONE'
   ]
 
-  selectedStatus = 'All'
+  selectedStatus = ''
 
+  onFilterChange(value) {
+    this.selectedStatus = value;
+  }
 
 }
