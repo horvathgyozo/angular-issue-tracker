@@ -4,7 +4,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from "@angular/flex-layout";
 
 import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule,
-      MatFormFieldModule, MatInputModule
+      MatFormFieldModule, MatInputModule,
+      MatButtonToggleModule
 } from "@angular/material";
 
 import { AppComponent } from './app.component';
@@ -40,7 +41,8 @@ import { IssueFormComponent } from './issue-form/issue-form.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatButtonToggleModule
   ],
   providers: [FruitsService],
   bootstrap: [AppComponent]

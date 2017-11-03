@@ -1,4 +1,15 @@
 <h1 class="display-2">My issues</h1>
+
+Filter:
+<mat-button-toggle-group [value]="selectedStatus">
+  <mat-button-toggle value="All" >
+    All
+  </mat-button-toggle>
+  <mat-button-toggle *ngFor="let status of statuses" [value]="status">
+    {{status}}
+  </mat-button-toggle>
+</mat-button-toggle-group>
+
 <table class="table">
   <thead>
     <tr>
@@ -10,45 +21,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>PC5</td>
+    <tr *ngFor="let issue of issues">
+      <th scope="row">{{ issue.id }}</th>
+      <td>{{ issue.location }}</td>
       <td>
-        <a routerLink="/issues/1">Wrong machine</a>
+        <a [routerLink]="['/issues', issue.id]">{{ issue.description }}</a>
       </td>
-      <td>ADDED</td>
-      <td>
-        <button mat-icon-button>
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button color="warn">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>PC2</td>
-      <td>
-        <a routerLink="/issues/1">Air condition</a>
-      </td>
-      <td>INPROGRESS</td>
-      <td>
-        <button mat-icon-button>
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button color="warn">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>PC3</td>
-      <td>
-        <a routerLink="/issues/1">Air condition</a>
-      </td>
-      <td>INPROGRESS</td>
+      <td>{{ issue.status }}</td>
       <td>
         <button mat-icon-button>
           <mat-icon>edit</mat-icon>

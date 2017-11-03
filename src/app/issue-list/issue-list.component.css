@@ -1,3 +1,7 @@
 button[color=warn]:focus {
   outline: none;
 }
+
+label.mat-button-toggle-label {
+  margin: 0 !important;
+}
