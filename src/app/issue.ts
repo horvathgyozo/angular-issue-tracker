@@ -1,6 +1,6 @@
 export class Issue {
-  id: number;
-  location: string;
-  description: string;
-  status: string;
+  id: number = 0;
+  location: string = '';
+  description: string = '';
+  status: string = 'ADDED';
 }

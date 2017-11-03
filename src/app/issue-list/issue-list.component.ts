@@ -28,7 +28,7 @@ export class IssueListComponent implements OnInit {
     this.filterIssues();
   }
 
-  onFilterChange(value) {
+  onFilterChange(value: string) {
     this.selectedStatus = value;
     this.filterIssues();
   }
@@ -37,7 +37,7 @@ export class IssueListComponent implements OnInit {
     this.filteredIssues = this.selectedStatus === '' ? this.issues : issues.filter(issue => issue.status === this.selectedStatus);
   }
 
-  onSelectIssue(issue) {
+  onSelectIssue(issue: Issue) {
     if (!this.issueForm) {
       this.selectedIssue = issue;
     }
@@ -50,6 +50,21 @@ export class IssueListComponent implements OnInit {
     else {
       this.selectedIssue = issue;
     }
+  }
+
+  onFormSubmit(issue: Issue) {
+    if (issue.id > 0) {
+      this.selectedIssue.location = issue.location;
+      this.selectedIssue.description = issue.description;
+    } else {
+      Object.assign(this.selectedIssue, issue, {id:Math.floor(Math.random()*1000000)});
+      this.issues.push(this.selectedIssue);
+    }
+    this.selectedIssue = null;
+  }
+
+  onNewClick() {
+    this.selectedIssue = new Issue();
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, ViewChild } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, ViewChild } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { Issue } from "../issue";
 
@@ -11,6 +11,9 @@ export class IssueFormComponent implements OnChanges {
   @ViewChild(NgForm) form: NgForm;
 
   @Input() issue: Issue = null;
+
+  @Output() onSubmit = new EventEmitter<Issue>();
+
   model: Issue = null;
 
   constructor() { }
@@ -23,15 +26,11 @@ export class IssueFormComponent implements OnChanges {
     this.model = Object.assign({}, this.issue);
   }
 
-  onSubmit(form) {
-    console.log(form);
+  submit(form) {
     if (!form.valid) {
       return;
     }
-
-    // Object.assign(this.issue, this.model);
-    this.issue.location = this.model.location;
-    this.issue.description = this.model.description;
+    this.onSubmit.emit(this.model);
   }
 
 }

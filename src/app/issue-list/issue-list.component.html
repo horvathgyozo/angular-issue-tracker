@@ -34,9 +34,9 @@
         </tr>
       </tbody>
     </table>
-    <button mat-raised-button routerLink="/issues/add" color="primary">New issues</button>
+    <button mat-raised-button color="primary" (click)="onNewClick()">New issue</button>
   </div>
   <div class="col" *ngIf="selectedIssue != null">
-    <issue-form [issue]="selectedIssue"></issue-form>
+    <issue-form [issue]="selectedIssue" (onSubmit)="onFormSubmit($event)"></issue-form>
   </div>
 </div>
