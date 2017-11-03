@@ -20,6 +20,7 @@ import { IssueListComponent } from './issue-list/issue-list.component';
 import { RoutingModule } from "./routing/routing.module";
 import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 import { IssueFormComponent } from './issue-form/issue-form.component';
+import { StatusFilterComponent } from './status-filter/status-filter.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { IssueFormComponent } from './issue-form/issue-form.component';
     FruitDetailComponent,
     IssueListComponent,
     IssueDetailComponent,
-    IssueFormComponent
+    IssueFormComponent,
+    StatusFilterComponent
   ],
   imports: [
     BrowserModule,

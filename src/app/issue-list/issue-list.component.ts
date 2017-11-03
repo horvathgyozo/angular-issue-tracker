@@ -15,15 +15,13 @@ const issues: Issue[] = [
 })
 export class IssueListComponent implements OnInit {
 
-  issues;
-
-  statuses: string[] = [
-    'ADDED', 'ASSIGNED', 'DONE'
-  ]
+  issues = [];
+  filteredIssues = [];
 
   selectedStatus = ''
 
   ngOnInit() {
+    this.issues = issues;
     this.filterIssues();
   }
 
@@ -33,7 +31,7 @@ export class IssueListComponent implements OnInit {
   }
 
   filterIssues() {
-    this.issues = this.selectedStatus === '' ? issues : issues.filter(issue => issue.status === this.selectedStatus);
+    this.filteredIssues = this.selectedStatus === '' ? this.issues : issues.filter(issue => issue.status === this.selectedStatus);
   }
 
 }

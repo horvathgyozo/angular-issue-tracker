@@ -1,0 +1,9 @@
+<mat-button-toggle-group [ngModel]="selectedStatus" (ngModelChange)="onFilterChange($event)">
+  <mat-button-toggle value="">
+    All
+  </mat-button-toggle>
+  <mat-button-toggle *ngFor="let status of statuses" [value]="status">
+    {{status}}
+  </mat-button-toggle>
+</mat-button-toggle-group>
+Selected filter: {{selectedStatus}}

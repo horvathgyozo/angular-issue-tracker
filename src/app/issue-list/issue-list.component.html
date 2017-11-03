@@ -1,16 +1,8 @@
 <h1 class="display-2">My issues</h1>
 
-<mat-button-toggle-group [ngModel]="selectedStatus" (ngModelChange)="onFilterChange($event)">
-<!-- <mat-button-toggle-group [value]="selectedStatus" (change)="onFilterChange(group.value)" #group="matButtonToggleGroup"> -->
-  <mat-button-toggle value="" >
-    All
-  </mat-button-toggle>
-  <mat-button-toggle *ngFor="let status of statuses" [value]="status">
-    {{status}}
-  </mat-button-toggle>
-</mat-button-toggle-group>
+<status-filter [status]="selectedStatus" (onChange)="onFilterChange($event)"></status-filter>
 
-Selected filter: {{selectedStatus | json}}
+Selected filter: {{selectedStatus}}
 
 <table class="table">
   <thead>
@@ -23,7 +15,7 @@ Selected filter: {{selectedStatus | json}}
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let issue of issues">
+    <tr *ngFor="let issue of filteredIssues">
       <th scope="row">{{ issue.id }}</th>
       <td>{{ issue.location }}</td>
       <td>
