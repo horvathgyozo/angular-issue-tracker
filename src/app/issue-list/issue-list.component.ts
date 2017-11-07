@@ -1,18 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Issue } from "../issue";
 import { IssueFormComponent } from "../issue-form/issue-form.component";
-
-const issues: Issue[] = [
-  {id: 1, location: 'PC5', description: 'Something wrong 1', status: 'ADDED'},
-  {id: 2, location: 'PC3', description: 'Something wrong 2', status: 'ASSIGNED'},
-  {id: 3, location: 'PC4', description: 'Something wrong 3', status: 'ADDED'},
-  {id: 4, location: 'PC2', description: 'Something wrong 4', status: 'DONE'},
-];
+import { IssueService } from "../issue.service";
 
 @Component({
   selector: 'app-issue-list',
   templateUrl: './issue-list.component.html',
-  styleUrls: ['./issue-list.component.css']
+  styleUrls: ['./issue-list.component.css'],
+  providers: [ IssueService ]
 })
 export class IssueListComponent implements OnInit {
   @ViewChild(IssueFormComponent) issueForm: IssueFormComponent;
@@ -23,8 +18,12 @@ export class IssueListComponent implements OnInit {
   selectedStatus = '';
   selectedIssue = null;
 
+  constructor(
+    private issueService: IssueService
+  ) {}
+
   ngOnInit() {
-    this.issues = issues;
+    this.issues = this.issueService.getIssues();
     this.filterIssues();
   }
 
@@ -34,7 +33,7 @@ export class IssueListComponent implements OnInit {
   }
 
   filterIssues() {
-    this.filteredIssues = this.selectedStatus === '' ? this.issues : issues.filter(issue => issue.status === this.selectedStatus);
+    this.filteredIssues = this.selectedStatus === '' ? this.issues : this.issues.filter(issue => issue.status === this.selectedStatus);
   }
 
   onSelectIssue(issue: Issue) {
