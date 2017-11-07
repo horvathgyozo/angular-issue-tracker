@@ -1,15 +1,12 @@
 <h1 class="display-2">Issue #{{ issue.id }}</h1>
 <dl class="row">
   <dt class="col-sm-3">Location</dt>
-  <dd class="col-sm-9">PC5</dd>
+  <dd class="col-sm-9">{{ issue.location }}</dd>
 
   <dt class="col-sm-3">Description</dt>
-  <dd class="col-sm-9">Wrong computer</dd>
+  <dd class="col-sm-9">{{ issue.description }}</dd>
 
   <dt class="col-sm-3">Status</dt>
-  <dd class="col-sm-9">ADDED</dd>
-
-  <dt class="col-sm-3">Time</dt>
-  <dd class="col-sm-9">2017-02-12</dd>
+  <dd class="col-sm-9">{{ issue.status }}</dd>
 </dl>
 <button mat-raised-button routerLink="/issues">Back</button>

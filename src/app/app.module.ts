@@ -16,6 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FruitDetailComponent } from './fruit-detail/fruit-detail.component';
 import { FruitsService } from "./fruits.service";
 import { IssueListComponent } from './issue-list/issue-list.component';
+import { IssueService } from "./issue.service";
 
 import { RoutingModule } from "./routing/routing.module";
 import { IssueDetailComponent } from './issue-detail/issue-detail.component';
@@ -48,7 +49,7 @@ import { StatusFilterComponent } from './status-filter/status-filter.component';
     MatButtonToggleModule,
     FormsModule
   ],
-  providers: [FruitsService],
+  providers: [FruitsService, IssueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

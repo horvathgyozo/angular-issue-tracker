@@ -35,10 +35,10 @@ const routes: Routes = [
     path: 'issues/add',
     component: IssueFormComponent
   },
-  // {
-  //   path: 'issues/:id',
-  //   component: IssueDetailComponent
-  // },
+  {
+    path: 'issue-detail/:id',
+    component: IssueDetailComponent
+  },
 ];
 
 @NgModule({

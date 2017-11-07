@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Issue } from "../issue";
 import { Observable } from "rxjs";
+import { IssueService } from "../issue.service";
 
 @Component({
   selector: 'app-issue-detail',
@@ -13,7 +14,8 @@ export class IssueDetailComponent implements OnInit {
   issue: Issue;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private issueService: IssueService
   ) { }
 
   ngOnInit() {
@@ -24,8 +26,8 @@ export class IssueDetailComponent implements OnInit {
     // const id = +this.route.snapshot.paramMap.get('id');
     this.route.paramMap
       .switchMap((params: ParamMap) => {
-        const issue = new Issue();
-        issue.id = +params.get('id');
+        const id = +params.get('id');
+        const issue = this.issueService.getIssue(id);
         return Observable.of(issue);
       })
       .subscribe(issue => this.issue = issue);

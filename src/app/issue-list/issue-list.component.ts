@@ -6,8 +6,7 @@ import { IssueService } from "../issue.service";
 @Component({
   selector: 'app-issue-list',
   templateUrl: './issue-list.component.html',
-  styleUrls: ['./issue-list.component.css'],
-  providers: [ IssueService ]
+  styleUrls: ['./issue-list.component.css']
 })
 export class IssueListComponent implements OnInit {
   @ViewChild(IssueFormComponent) issueForm: IssueFormComponent;
