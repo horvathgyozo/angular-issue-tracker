@@ -39,4 +39,5 @@
   <div class="col" *ngIf="selectedIssue != null">
     <issue-form [issue]="selectedIssue" (onSubmit)="onFormSubmit($event)"></issue-form>
   </div>
+  <router-outlet></router-outlet>
 </div>

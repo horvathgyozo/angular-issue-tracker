@@ -19,7 +19,13 @@ const routes: Routes = [
   },
   {
     path: 'issues',
-    component: IssueListComponent
+    component: IssueListComponent,
+    children: [
+      {
+        path: ':id',
+        component: IssueDetailComponent
+      }
+    ]
   },
   {
     path: 'dashboard',
@@ -29,10 +35,10 @@ const routes: Routes = [
     path: 'issues/add',
     component: IssueFormComponent
   },
-  {
-    path: 'issues/:id',
-    component: IssueDetailComponent
-  },
+  // {
+  //   path: 'issues/:id',
+  //   component: IssueDetailComponent
+  // },
 ];
 
 @NgModule({
