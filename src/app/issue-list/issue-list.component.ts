@@ -20,9 +20,11 @@ export class IssueListComponent implements OnInit {
     private issueService: IssueService
   ) {}
 
-  async ngOnInit() {
-    this.issues = await this.issueService.getIssues();
-    this.filterIssues();
+  ngOnInit() {
+    this.issueService.getIssues().subscribe(issues => {
+      this.issues = issues;
+      this.filterIssues();
+    });
   }
 
   onFilterChange(value: string) {

@@ -26,22 +26,23 @@ export class IssueEditComponent implements OnInit {
 
     getIssue() {
       this.route.paramMap
-        .switchMap(async (params: ParamMap) => {
+        .switchMap((params: ParamMap) => {
           const id = params.get('id');
-          const issue = await (id !== null ?  this.issueService.getIssue(+id) : Promise.resolve(new Issue()));
+          const issue = id !== null ?  this.issueService.getIssue(+id) : Observable.of(new Issue());
           return issue;
         })
         .subscribe(issue => this.issue = issue);
 
     }
 
-    async onFormSubmit(issue: Issue) {
+    onFormSubmit(issue: Issue) {
+      let ob: Observable<Issue>;
       if (issue.id > 0) {
-        await this.issueService.updateIssue(issue);
+        ob = this.issueService.updateIssue(issue);
       } else {
-        await this.issueService.addIssue(issue);
+        ob = this.issueService.addIssue(issue);
       }
-      this.location.back();
+      ob.subscribe(issue => this.location.back());
     }
 
     onFormReset() {

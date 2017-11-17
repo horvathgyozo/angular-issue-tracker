@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Issue } from "./issue";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 const ISSUES: Issue[] = [
   {id: 1, location: 'PC5', description: 'Something wrong 1', status: 'ADDED'},
@@ -20,26 +21,20 @@ export class IssueService {
     private http: HttpClient
   ) { }
 
-  getIssues(): Promise<Issue[]> {
-    return this.http.get<Issue[]>('http://localhost:4200/api/issue').toPromise();
+  getIssues(): Observable<Issue[]> {
+    return this.http.get<Issue[]>('http://localhost:4200/api/issue');
   }
 
-  getIssuesSlowly(): Promise<Issue[]> {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(ISSUES), 3000);
-    });
+  getIssue(id: number): Observable<Issue> {
+    return this.http.get<Issue>(`http://localhost:4200/api/issue/${id}`);
   }
 
-  getIssue(id: number): Promise<Issue> {
-    return this.http.get<Issue>(`http://localhost:4200/api/issue/${id}`).toPromise();
+  updateIssue(issue: Issue): Observable<Issue> {
+    return this.http.put<Issue>(`http://localhost:4200/api/issue/${issue.id}`, issue, httpOptions);
   }
 
-  updateIssue(issue: Issue): Promise<Issue> {
-    return this.http.put<Issue>(`http://localhost:4200/api/issue/${issue.id}`, issue, httpOptions).toPromise();
-  }
-
-  addIssue(issue: Issue): Promise<Issue> {
-    return this.http.post<Issue>(`http://localhost:4200/api/issue`, issue, httpOptions).toPromise();
+  addIssue(issue: Issue): Observable<Issue> {
+    return this.http.post<Issue>(`http://localhost:4200/api/issue`, issue, httpOptions);
   }
 
 }

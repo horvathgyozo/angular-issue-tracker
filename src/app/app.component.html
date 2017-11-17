@@ -7,7 +7,7 @@
   <span class="fill-remaining-space" fxHide="false" fxHide.gt-sm></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
     <button mat-button routerLink="/issues">My issues</button>
-    <button mat-button routerLink="/issues/add">New issues</button>
+    <button mat-button routerLink="/issues/new">New issue</button>
   </div>
   <button mat-icon-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
     <mat-icon>menu</mat-icon>
@@ -15,7 +15,7 @@
 </mat-toolbar>
 <mat-menu xPosition="before" #menu="matMenu">
   <button mat-menu-item routerLink="/issues">My issues</button>
-  <button mat-menu-item routerLink="/issues/new">New issues</button>
+  <button mat-menu-item routerLink="/issues/new">New issue</button>
 </mat-menu>
 
 <div class="container">
