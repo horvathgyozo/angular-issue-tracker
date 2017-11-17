@@ -13,23 +13,31 @@ export class IssueService {
 
   constructor() { }
 
-  getIssues(): Issue[] {
-    return ISSUES;
+  getIssues(): Promise<Issue[]> {
+    return Promise.resolve(ISSUES);
   }
 
-  getIssue(id: number): Issue {
-    return ISSUES.find(issue => issue.id === id);
+  getIssuesSlowly(): Promise<Issue[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(ISSUES), 3000);
+    });
   }
 
-  updateIssue(issue: Issue) {
-    Object.assign(this.getIssue(issue.id), issue);
+  getIssue(id: number): Promise<Issue> {
+    return Promise.resolve(ISSUES.find(issue => issue.id === id));
   }
 
-  addIssue(issue: Issue) {
-    ISSUES.push(Object.assign(
+  updateIssue(issue: Issue): Promise<Issue> {
+    return Promise.resolve(Object.assign(this.getIssue(issue.id), issue));
+  }
+
+  addIssue(issue: Issue): Promise<Issue> {
+    const newIssue: Issue = Object.assign(
       issue,
       { id: ISSUES.length+1, status: 'ADDED' }
-    ));
+    );
+    ISSUES.push(newIssue);
+    return Promise.resolve(newIssue);
   }
 
 }

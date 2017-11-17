@@ -26,10 +26,10 @@ export class IssueEditComponent implements OnInit {
 
     getIssue() {
       this.route.paramMap
-        .switchMap((params: ParamMap) => {
+        .switchMap(async (params: ParamMap) => {
           const id = params.get('id');
-          const issue = id !== null ? this.issueService.getIssue(+id) : new Issue();
-          return Observable.of(issue);
+          const issue = await (id !== null ?  this.issueService.getIssue(+id) : Promise.resolve(new Issue()));
+          return issue;
         })
         .subscribe(issue => this.issue = issue);
 

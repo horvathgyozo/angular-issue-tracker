@@ -1,14 +1,14 @@
-<h1 class="display-2">Issue #{{ issue.id }}</h1>
+<h1 class="display-2">Issue #{{ issue?.id }}</h1>
 <dl class="row">
   <dt class="col-sm-3">Location</dt>
-  <dd class="col-sm-9">{{ issue.location }}</dd>
+  <dd class="col-sm-9">{{ issue?.location }}</dd>
 
   <dt class="col-sm-3">Description</dt>
-  <dd class="col-sm-9">{{ issue.description }}</dd>
+  <dd class="col-sm-9">{{ issue?.description }}</dd>
 
   <dt class="col-sm-3">Status</dt>
-  <dd class="col-sm-9">{{ issue.status }}</dd>
+  <dd class="col-sm-9">{{ issue?.status }}</dd>
 </dl>
 
-<button mat-raised-button [routerLink]="['/issues', issue.id, 'edit']" color="primary">Edit</button>
+<button mat-raised-button [routerLink]="['/issues', issue?.id, 'edit']" color="primary">Edit</button>
 <button mat-raised-button routerLink="/issues">Back</button>

@@ -25,13 +25,8 @@ export class IssueDetailComponent implements OnInit {
   getIssue() {
     // const id = +this.route.snapshot.paramMap.get('id');
     this.route.paramMap
-      .switchMap((params: ParamMap) => {
-        const id = +params.get('id');
-        const issue = this.issueService.getIssue(id);
-        return Observable.of(issue);
-      })
+      .switchMap((params: ParamMap) => this.issueService.getIssue(+params.get('id')))
       .subscribe(issue => this.issue = issue);
-
   }
 
 }

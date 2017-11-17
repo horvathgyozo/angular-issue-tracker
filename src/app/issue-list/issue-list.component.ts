@@ -20,8 +20,8 @@ export class IssueListComponent implements OnInit {
     private issueService: IssueService
   ) {}
 
-  ngOnInit() {
-    this.issues = this.issueService.getIssues();
+  async ngOnInit() {
+    this.issues = await this.issueService.getIssuesSlowly();
     this.filterIssues();
   }
 
