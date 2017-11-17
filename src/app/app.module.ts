@@ -23,7 +23,6 @@ import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 import { IssueFormComponent } from './issue-form/issue-form.component';
 import { StatusFilterComponent } from './status-filter/status-filter.component';
 import { IssueEditComponent } from './issue-edit/issue-edit.component';
-import { IssueNewComponent } from './issue-new/issue-new.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { IssueNewComponent } from './issue-new/issue-new.component';
     IssueDetailComponent,
     IssueFormComponent,
     StatusFilterComponent,
-    IssueEditComponent,
-    IssueNewComponent
+    IssueEditComponent
   ],
   imports: [
     BrowserModule,
