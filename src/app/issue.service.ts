@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Issue } from "./issue";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 const ISSUES: Issue[] = [
   {id: 1, location: 'PC5', description: 'Something wrong 1', status: 'ADDED'},
@@ -8,13 +9,19 @@ const ISSUES: Issue[] = [
   {id: 4, location: 'PC2', description: 'Something wrong 4', status: 'DONE'},
 ];
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable()
 export class IssueService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getIssues(): Promise<Issue[]> {
-    return Promise.resolve(ISSUES);
+    return this.http.get<Issue[]>('http://localhost:4200/api/issue').toPromise();
   }
 
   getIssuesSlowly(): Promise<Issue[]> {
@@ -24,20 +31,15 @@ export class IssueService {
   }
 
   getIssue(id: number): Promise<Issue> {
-    return Promise.resolve(ISSUES.find(issue => issue.id === id));
+    return this.http.get<Issue>(`http://localhost:4200/api/issue/${id}`).toPromise();
   }
 
   updateIssue(issue: Issue): Promise<Issue> {
-    return Promise.resolve(Object.assign(this.getIssue(issue.id), issue));
+    return this.http.put<Issue>(`http://localhost:4200/api/issue/${issue.id}`, issue, httpOptions).toPromise();
   }
 
   addIssue(issue: Issue): Promise<Issue> {
-    const newIssue: Issue = Object.assign(
-      issue,
-      { id: ISSUES.length+1, status: 'ADDED' }
-    );
-    ISSUES.push(newIssue);
-    return Promise.resolve(newIssue);
+    return this.http.post<Issue>(`http://localhost:4200/api/issue`, issue, httpOptions).toPromise();
   }
 
 }

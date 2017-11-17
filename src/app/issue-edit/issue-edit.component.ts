@@ -35,11 +35,11 @@ export class IssueEditComponent implements OnInit {
 
     }
 
-    onFormSubmit(issue: Issue) {
+    async onFormSubmit(issue: Issue) {
       if (issue.id > 0) {
-        this.issueService.updateIssue(issue);
+        await this.issueService.updateIssue(issue);
       } else {
-        this.issueService.addIssue(issue);
+        await this.issueService.addIssue(issue);
       }
       this.location.back();
     }

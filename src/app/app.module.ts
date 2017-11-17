@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule,
       MatFormFieldModule, MatInputModule,
@@ -23,6 +24,7 @@ import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 import { IssueFormComponent } from './issue-form/issue-form.component';
 import { StatusFilterComponent } from './status-filter/status-filter.component';
 import { IssueEditComponent } from './issue-edit/issue-edit.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -49,9 +51,10 @@ import { IssueEditComponent } from './issue-edit/issue-edit.component';
     MatInputModule,
     FlexLayoutModule,
     MatButtonToggleModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [FruitsService, IssueService],
+  providers: [FruitsService, IssueService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
