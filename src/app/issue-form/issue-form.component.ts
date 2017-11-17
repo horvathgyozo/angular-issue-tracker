@@ -13,6 +13,7 @@ export class IssueFormComponent implements OnChanges {
   @Input() issue: Issue = null;
 
   @Output() onSubmit = new EventEmitter<Issue>();
+  @Output() onReset = new EventEmitter();
 
   model: Issue = null;
 
@@ -31,6 +32,10 @@ export class IssueFormComponent implements OnChanges {
       return;
     }
     this.onSubmit.emit(this.model);
+  }
+
+  reset() {
+    this.onReset.emit();
   }
 
 }

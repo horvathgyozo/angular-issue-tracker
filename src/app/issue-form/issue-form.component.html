@@ -1,5 +1,5 @@
 <!-- <h1 class="display-2">New issue</h1> -->
-<form #issueForm="ngForm" (ngSubmit)="submit(issueForm)">
+<form #issueForm="ngForm" (ngSubmit)="submit(issueForm)" (reset)="reset()">
 
   <div class="form-group">
     <!-- <small id="locationHelp" class="form-text text-muted">Give the location of the issue (e.g. labor)</small> -->
@@ -24,4 +24,5 @@
   </div>
 
   <button type="submit" mat-raised-button color="primary" [disabled]="!issueForm.valid">Save issue</button>
+  <button type="reset" mat-button>Cancel</button>
 </form>

@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let issue of filteredIssues" (click)="onSelectIssue(issue)" [class.table-primary]="issue === selectedIssue">
+        <tr *ngFor="let issue of filteredIssues">
           <th scope="row">{{ issue.id }}</th>
           <td>{{ issue.location }}</td>
           <td>
@@ -24,9 +24,9 @@
           </td>
           <td>{{ issue.status }}</td>
           <td>
-            <button mat-icon-button>
+            <a mat-icon-button [routerLink]="['/issues', issue.id, 'edit']">
               <mat-icon>edit</mat-icon>
-            </button>
+            </a>
             <button mat-icon-button color="warn">
               <mat-icon>delete</mat-icon>
             </button>
@@ -36,8 +36,4 @@
     </table>
     <button mat-raised-button color="primary" (click)="onNewClick()">New issue</button>
   </div>
-  <div class="col" *ngIf="selectedIssue != null">
-    <issue-form [issue]="selectedIssue" (onSubmit)="onFormSubmit($event)"></issue-form>
-  </div>
-  <router-outlet></router-outlet>
 </div>

@@ -21,4 +21,8 @@ export class IssueService {
     return ISSUES.find(issue => issue.id === id);
   }
 
+  updateIssue(issue: Issue) {
+    Object.assign(this.getIssue(issue.id), issue);
+  }
+
 }
