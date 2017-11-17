@@ -19,13 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'issues',
-    component: IssueListComponent,
-    children: [
-      {
-        path: ':id',
-        component: IssueDetailComponent
-      }
-    ]
+    component: IssueListComponent
   },
   {
     path: 'dashboard',
@@ -36,7 +30,7 @@ const routes: Routes = [
     component: IssueFormComponent
   },
   {
-    path: 'issue-detail/:id',
+    path: 'issues/:id',
     component: IssueDetailComponent
   },
 ];
