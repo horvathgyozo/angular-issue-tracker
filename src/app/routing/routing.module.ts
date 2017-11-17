@@ -27,8 +27,8 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: 'issues/add',
-    component: IssueFormComponent
+    path: 'issues/new',
+    component:  IssueEditComponent
   },
   {
     path: 'issues/:id',

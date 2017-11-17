@@ -27,8 +27,8 @@ export class IssueEditComponent implements OnInit {
     getIssue() {
       this.route.paramMap
         .switchMap((params: ParamMap) => {
-          const id = +params.get('id');
-          const issue = this.issueService.getIssue(id);
+          const id = params.get('id');
+          const issue = id !== null ? this.issueService.getIssue(+id) : new Issue();
           return Observable.of(issue);
         })
         .subscribe(issue => this.issue = issue);
@@ -36,7 +36,11 @@ export class IssueEditComponent implements OnInit {
     }
 
     onFormSubmit(issue: Issue) {
-      this.issueService.updateIssue(issue);
+      if (issue.id > 0) {
+        this.issueService.updateIssue(issue);
+      } else {
+        this.issueService.addIssue(issue);
+      }
       this.location.back();
     }
 

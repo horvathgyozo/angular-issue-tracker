@@ -25,4 +25,11 @@ export class IssueService {
     Object.assign(this.getIssue(issue.id), issue);
   }
 
+  addIssue(issue: Issue) {
+    ISSUES.push(Object.assign(
+      issue,
+      { id: ISSUES.length+1, status: 'ADDED' }
+    ));
+  }
+
 }

@@ -9,4 +9,6 @@
   <dt class="col-sm-3">Status</dt>
   <dd class="col-sm-9">{{ issue.status }}</dd>
 </dl>
+
+<button mat-raised-button [routerLink]="['/issues', issue.id, 'edit']" color="primary">Edit</button>
 <button mat-raised-button routerLink="/issues">Back</button>
