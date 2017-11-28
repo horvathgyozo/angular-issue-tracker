@@ -15,7 +15,7 @@
     </div>
     <div *ngIf="authService.isLoggedIn">
       Hello, valaki!
-      <button mat-button routerLink="/logout">Logout</button>
+      <button mat-button (click)="logout()">Logout</button>
     </div>
   </div>
   <button mat-icon-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
@@ -30,6 +30,6 @@
     <button mat-menu-item routerLink="/register">Register</button>
   </div>
   <div *ngIf="authService.isLoggedIn">
-    <button mat-menu-item routerLink="/logout">Logout</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
   </div>
 </mat-menu>

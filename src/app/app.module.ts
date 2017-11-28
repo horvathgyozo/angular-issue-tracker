@@ -27,6 +27,7 @@ import { IssueEditComponent } from './issue-edit/issue-edit.component';
 import { AuthService } from './auth.service';
 import { MenuComponent } from './menu/menu.component';
 import { AuthGuard } from './auth.guard';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AuthGuard } from './auth.guard';
     IssueFormComponent,
     StatusFilterComponent,
     IssueEditComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { IssueDetailComponent } from "../issue-detail/issue-detail.component";
 import { IssueFormComponent } from "../issue-form/issue-form.component";
 import { IssueEditComponent } from "../issue-edit/issue-edit.component";
 import { AuthGuard } from '../auth.guard';
+import { LoginComponent } from '../login/login.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
     path: 'issues/:id/edit',
     component: IssueEditComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
 ];
 
