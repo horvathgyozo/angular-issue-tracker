@@ -29,6 +29,7 @@ export class AuthService {
   }
 
   logout() {
+    // https://stackoverflow.com/a/46816238
     return this.http.post('api/user/logout', {}, httpOptions).pipe(
       tap(res => {
         console.log('service logout', res);
