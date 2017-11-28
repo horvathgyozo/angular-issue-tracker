@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/">
+    <mat-icon>home</mat-icon>
+    Issue tracker
+  </button>
+
+  <span class="fill-remaining-space" fxHide="false" fxHide.gt-sm></span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm class="buttons">
+    <button mat-button routerLink="/issues">My issues</button>
+    <button mat-button routerLink="/issues/new">New issue</button>
+    <span class="fill-remaining-space"></span>
+    <div *ngIf="!authService.isLoggedIn">
+      <button mat-button routerLink="/login">Login</button>
+      <button mat-button routerLink="/register">Register</button>
+    </div>
+    <div *ngIf="authService.isLoggedIn">
+      Hello, valaki!
+      <button mat-button routerLink="/logout">Logout</button>
+    </div>
+  </div>
+  <button mat-icon-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu xPosition="before" #menu="matMenu">
+  <button mat-menu-item routerLink="/issues">My issues</button>
+  <button mat-menu-item routerLink="/issues/new">New issue</button>
+  <div *ngIf="!authService.isLoggedIn">
+    <button mat-menu-item routerLink="/login">Login</button>
+    <button mat-menu-item routerLink="/register">Register</button>
+  </div>
+  <div *ngIf="authService.isLoggedIn">
+    <button mat-menu-item routerLink="/logout">Logout</button>
+  </div>
+</mat-menu>

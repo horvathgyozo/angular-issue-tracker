@@ -25,6 +25,7 @@ import { IssueFormComponent } from './issue-form/issue-form.component';
 import { StatusFilterComponent } from './status-filter/status-filter.component';
 import { IssueEditComponent } from './issue-edit/issue-edit.component';
 import { AuthService } from './auth.service';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AuthService } from './auth.service';
     IssueDetailComponent,
     IssueFormComponent,
     StatusFilterComponent,
-    IssueEditComponent
+    IssueEditComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
