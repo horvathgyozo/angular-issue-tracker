@@ -11,6 +11,7 @@ import { IssueListComponent } from "../issue-list/issue-list.component";
 import { IssueDetailComponent } from "../issue-detail/issue-detail.component";
 import { IssueFormComponent } from "../issue-form/issue-form.component";
 import { IssueEditComponent } from "../issue-edit/issue-edit.component";
+import { AuthGuard } from '../auth.guard';
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'issues',
-    component: IssueListComponent
+    component: IssueListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'dashboard',
@@ -28,15 +30,18 @@ const routes: Routes = [
   },
   {
     path: 'issues/new',
-    component:  IssueEditComponent
+    component:  IssueEditComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'issues/:id',
-    component: IssueDetailComponent
+    component: IssueDetailComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'issues/:id/edit',
-    component: IssueEditComponent
+    component: IssueEditComponent,
+    canActivate: [AuthGuard]
   },
 ];
 

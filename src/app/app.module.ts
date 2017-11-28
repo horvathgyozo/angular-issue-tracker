@@ -26,6 +26,7 @@ import { StatusFilterComponent } from './status-filter/status-filter.component';
 import { IssueEditComponent } from './issue-edit/issue-edit.component';
 import { AuthService } from './auth.service';
 import { MenuComponent } from './menu/menu.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { MenuComponent } from './menu/menu.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [FruitsService, IssueService, AuthService],
+  providers: [FruitsService, IssueService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

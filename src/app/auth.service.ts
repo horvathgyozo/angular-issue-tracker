@@ -12,6 +12,7 @@ export class AuthService {
 
   user: User;
   isLoggedIn: boolean = false;
+  redirectUrl: string;
 
   constructor(
     private http: HttpClient
