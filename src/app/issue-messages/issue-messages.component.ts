@@ -8,17 +8,16 @@ import { Message } from '../message';
 })
 export class IssueMessagesComponent implements OnInit {
 
-  @Input() messages: Message[] = [
-    { id: 1, text: "message1" },
-    { id: 1, text: "message2" },
-    { id: 1, text: "message3" },
-    { id: 1, text: "message4" }
-
-  ]
+  @Input() messages: Message[];
+  message: string = '';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onEnter(message) {
+
   }
 
 }

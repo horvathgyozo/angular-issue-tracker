@@ -1,3 +1,12 @@
+<h3>Messages</h3>
+
+<div class="form-group">
+  <mat-form-field class="w-100">
+    <input (keyup.enter)="m.valid && onEnter(m.value)" matInput type="text" placeholder="New message" required name="message" [(ngModel)]="message" #m="ngModel">
+  </mat-form-field>
+</div>
+
+
 <mat-list>
   <mat-list-item *ngFor="let message of messages">
     <h3 matLine> {{ message.user.username }} </h3>
