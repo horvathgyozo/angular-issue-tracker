@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Issue } from "../issue";
 import { IssueFormComponent } from "../issue-form/issue-form.component";
 import { IssueService } from "../issue.service";
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-issue-list',
@@ -17,7 +18,8 @@ export class IssueListComponent implements OnInit {
   selectedStatus = '';
 
   constructor(
-    private issueService: IssueService
+    private issueService: IssueService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {

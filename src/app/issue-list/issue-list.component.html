@@ -24,10 +24,10 @@
           </td>
           <td>{{ issue.status }}</td>
           <td>
-            <a mat-icon-button [routerLink]="['/issues', issue.id, 'edit']">
+            <a *ngIf="authService.user.role === 'ADMIN'" mat-icon-button [routerLink]="['/issues', issue.id, 'edit']">
               <mat-icon>edit</mat-icon>
             </a>
-            <button mat-icon-button color="warn">
+            <button *ngIf="authService.user.role === 'ADMIN'" mat-icon-button color="warn">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
