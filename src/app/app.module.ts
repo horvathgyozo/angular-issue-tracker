@@ -7,7 +7,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule,
       MatFormFieldModule, MatInputModule,
-      MatButtonToggleModule
+      MatButtonToggleModule, MatListModule
 } from "@angular/material";
 
 import { AppComponent } from './app.component';
@@ -28,6 +28,7 @@ import { AuthService } from './auth.service';
 import { MenuComponent } from './menu/menu.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
+import { IssueMessagesComponent } from './issue-messages/issue-messages.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LoginComponent } from './login/login.component';
     StatusFilterComponent,
     IssueEditComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    IssueMessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import { LoginComponent } from './login/login.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    MatListModule,
     FlexLayoutModule,
     MatButtonToggleModule,
     FormsModule,
