@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Issue } from "./issue";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Message } from './message';
 
 const ISSUES: Issue[] = [
   {id: 1, location: 'PC5', description: 'Something wrong 1', status: 'ADDED'},
@@ -35,6 +36,10 @@ export class IssueService {
 
   addIssue(issue: Issue): Observable<Issue> {
     return this.http.post<Issue>(`http://localhost:4200/api/issue`, issue, httpOptions);
+  }
+
+  addMessage(issue: Issue, text: string): Observable<Message> {
+    return this.http.post<Message>(`http://localhost:4200/api/issue/${issue.id}/message`, {text}, httpOptions);
   }
 
 }

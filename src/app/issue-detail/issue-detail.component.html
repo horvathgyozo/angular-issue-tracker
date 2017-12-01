@@ -13,4 +13,4 @@
 <button mat-raised-button [routerLink]="['/issues', issue?.id, 'edit']" color="primary">Edit</button>
 <button mat-raised-button routerLink="/issues">Back</button>
 
-<issue-messages [messages]="issue?.messages"></issue-messages>
+<issue-messages [messages]="issue?.messages" [issue]="issue"></issue-messages>
